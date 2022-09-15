@@ -9,5 +9,6 @@ namespace HistoriaClinicaBD.Data.Entidades
     public class Profesional
     {
         public string NombreCompleto { get; set; }
+        public string DNI { get; set; } 
     }
 }
