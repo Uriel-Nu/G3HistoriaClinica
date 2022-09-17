@@ -1,4 +1,6 @@
+using HistoriaClinicaBD.Data;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+var conn = builder.Configuration.GetConnectionString("con");
+IServiceCollection serviceCollection = builder.Services.AddDbContext<Conbd>(opciones =>
+    opciones.UseSqlServer(conn));
 
 var app = builder.Build();
 

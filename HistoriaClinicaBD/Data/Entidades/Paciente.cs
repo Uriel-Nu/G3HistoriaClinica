@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace HistoriaClinicaBD.Data.Entidades
 {
-    public class Paciente
+    public class PACIENTE
     {
+        
+    public int nombre{ get; set; }
+        public int id { get; set; }
+
     }
 }
