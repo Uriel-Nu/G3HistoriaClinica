@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HistoriaClinicaBD.Data
 {
-    internal class EntytyBase
+    public class EntytyBase
     {
         public int ID { get; set; }
 
