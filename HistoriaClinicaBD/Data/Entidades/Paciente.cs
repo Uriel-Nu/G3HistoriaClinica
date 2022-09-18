@@ -12,9 +12,23 @@ namespace HistoriaClinicaBD.Data.Entidades
         [Required(ErrorMessage = " Campo obligatorio")]
         [MaxLength(10, ErrorMessage = " El nombre, es obligatorio ")]
 
-        public int nombre{ get; set; }
+        public string nombre{ get; set; }
 
-        public int id { get; set; }
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El nombre, es obligatorio ")]
 
+        public string Apellido { get; set; }
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El nombre, es obligatorio ")]
+        public string DNI { get; set; }
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El nombre, es obligatorio ")]
+        public string Direccion { get; set; }
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        
+        public int telefono { get; set; }
     }
 }
