@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HistoriaClinicaBD.Data.Entidades
 {
-    [Index(nameof(DNI), Name = "DniMedico-uq", IsUnique = true)]
+    [Index(nameof(DNI), Name = "DniProfesional-uq", IsUnique = true)]
     public class Profesional
     {
 
