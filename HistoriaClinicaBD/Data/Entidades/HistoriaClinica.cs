@@ -1,22 +1,45 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace HistoriaClinicaBD.Data.Entidades
 {
 
+    [Index(nameof(Numero_HistoriaClinica), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
+
+
     public class HistoriaClinica
     {
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El Nombre_Completo, es obligatorio ")]
+        public string Nombre_Completo { get; set; }
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El Numero_Completo, es obligatorio ")]
+        public string Numero_HistoriaClinica { get; set; }
+
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El DNI, es obligatorio ")]
+        public string DNI { get; set; }
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El Edad, es obligatorio ")]
+        public int Edad { get; set; }
+
 
         [Required(ErrorMessage = " Campo obligatorio")]
         [MaxLength(10, ErrorMessage = " El Estado_Civil, es obligatorio ")]
         public string Estado_Civil { get; set; }
 
-
+        
         [Required(ErrorMessage = " Campo obligatorio")]
         [MaxLength(10, ErrorMessage = " El Telefono_Fijo, es obligatorio ")]
         public string Telefono_Fijo { get; set; }

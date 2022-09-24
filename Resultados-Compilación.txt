@@ -1,0 +1,15 @@
+﻿Operación Recompilar iniciada...
+1>------ Operación Recompilar todo iniciada: proyecto: HistoriaClinicaBD, configuración: Debug Any CPU ------
+2>------ Operación Recompilar todo iniciada: proyecto: G3HistoriaClinica.Shared, configuración: Debug Any CPU ------
+Se ha restaurado C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Shared\G3HistoriaClinica.Shared.csproj (en 2 ms).
+Se ha restaurado C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\HistoriaClinicaBD\HistoriaClinicaBD.csproj (en 75 ms).
+Se ha restaurado C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Client\G3HistoriaClinica.Client.csproj (en 108 ms).
+Se ha restaurado C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Server\G3HistoriaClinica.Server.csproj (en 120 ms).
+2>G3HistoriaClinica.Shared -> C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Shared\bin\Debug\net6.0\G3HistoriaClinica.Shared.dll
+3>------ Operación Recompilar todo iniciada: proyecto: G3HistoriaClinica.Client, configuración: Debug Any CPU ------
+1>HistoriaClinicaBD -> C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\HistoriaClinicaBD\bin\Debug\net6.0\HistoriaClinicaBD.dll
+3>G3HistoriaClinica.Client -> C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Client\bin\Debug\net6.0\G3HistoriaClinica.Client.dll
+3>G3HistoriaClinica.Client (Blazor output) -> C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Client\bin\Debug\net6.0\wwwroot
+4>------ Operación Recompilar todo iniciada: proyecto: G3HistoriaClinica.Server, configuración: Debug Any CPU ------
+4>G3HistoriaClinica.Server -> C:\Users\Candelaria Pilar Cer\Downloads\Nueva carpeta\G3HistoriaClinica\Server\bin\Debug\net6.0\G3HistoriaClinica.Server.dll
+========== Recompilación: 4 correctos, 0 dieron error, 0 omitidos ==========
