@@ -12,7 +12,7 @@ using System.Xml.Linq;
 namespace HistoriaClinicaBD.Data.Entidades
 {
 
-    [Index(nameof(Numero_HistoriaClinica), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
+    [Index(nameof (ID), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
 
 
     public class HistoriaClinica
@@ -23,8 +23,8 @@ namespace HistoriaClinicaBD.Data.Entidades
         public string Nombre_Completo { get; set; }
 
         [Required(ErrorMessage = " Campo obligatorio")]
-        [MaxLength(10, ErrorMessage = " El Numero_Completo, es obligatorio ")]
-        public string Numero_HistoriaClinica { get; set; }
+        
+        public int ID{ get; set; }
 
 
         [Required(ErrorMessage = " Campo obligatorio")]
