@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace HistoriaClinicaBD.Data.Entidades
 {
-    [Index(nameof(DNI), Name = "DniProfesional-uq", IsUnique = true)]
+    [Index(nameof(IdProfesional), Name = "DniProfesional-uq", IsUnique = true)]
     public class Profesional
     {
-
+        [Required(ErrorMessage = "Campo obligatorio")]
         
-            [Required(ErrorMessage = "Campo obligatorio")]
+        public int IdProfesional { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
             [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
             public string NombreCompleto { get; set; }
 

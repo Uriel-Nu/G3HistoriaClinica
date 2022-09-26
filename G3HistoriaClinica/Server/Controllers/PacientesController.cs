@@ -42,11 +42,24 @@ namespace G3HistoriaClinica.Server.Controllers
             //   return NotFound($"No existe la especialidad de ID={ID}");
         }
         //return paciente;
-        [HttpPost]  
-        public async Task<ActionResult<PACIENTE>> post(PACIENTE paciente)
+        [HttpPost]
+        //public async Task<ActionResult<PACIENTE>> post(PACIENTE paciente)
+        //{
+        // await inydbcont.Pacientes.AddAsync(paciente);
+        // return paciente;
+        //}
+        public async Task<ActionResult<int>> Post(PACIENTE paciente)
         {
-            await inydbcont.Pacientes.AddAsync(paciente);
-            return paciente;
+            try
+            {
+                inydbcont.Pacientes.Add(paciente);
+                await inydbcont.SaveChangesAsync();
+                return paciente.ID;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }   
