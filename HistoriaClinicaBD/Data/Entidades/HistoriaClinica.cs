@@ -15,7 +15,7 @@ namespace HistoriaClinicaBD.Data.Entidades
     [Index(nameof (ID), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
 
 
-    public class HistoriaClinica: EntityBase
+    public class HistoriaClinica: EntytyBase
     {
 
         [Required(ErrorMessage = " Campo obligatorio")]
@@ -24,8 +24,14 @@ namespace HistoriaClinicaBD.Data.Entidades
 
 
         [Required(ErrorMessage = " Campo obligatorio")]
-        [MaxLength(10, ErrorMessage = " El ID, es obligatorio ")]
-        public int ID{ get; set; }
+        [MaxLength(10, ErrorMessage = " El Profesional ID, es obligatorio ")]
+        public int Profesional_Id{ get; set; }
+
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        [MaxLength(10, ErrorMessage = " El Paciente ID, es obligatorio ")]
+        public int Paciente_Id { get; set; }
+
 
 
         [Required(ErrorMessage = " Campo obligatorio")]
@@ -133,8 +139,16 @@ namespace HistoriaClinicaBD.Data.Entidades
         public string Diagnostico_Medico { get; set; }
 
 
-
+        //Relacion 
         public List<PACIENTE>PACIENTES  { get; set; }
+
+
+    
+
+        //1 paciente, muchas historias clinicas
+        //Poner relacion
+        //PacienteId
+        //ProfesionalId
 
 
     }

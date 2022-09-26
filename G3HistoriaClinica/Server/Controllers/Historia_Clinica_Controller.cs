@@ -43,7 +43,7 @@ namespace G3HistoriaClinica.Server.Controllers
         public async Task<ActionResult<List<Historia_Clinica>>> Get(int ID)
         {
 
-            var historia_clinica = await Conbd.HistoriasClinicas.Where(h => h.id == ID).Include(i => i.Historias_Clinicas)FirstOrDeafaultAsync();
+            var historia_clinica = await Conbd.HistoriasClinicas.Where(h => h.id == ID).Include(i => i.Historias_Clinicas).FirstOrDeafaultAsync();
 
 
             if(historia_clinica == null)
