@@ -29,7 +29,7 @@ namespace G3HistoriaClinica.Server.Controllers
 
         [HttpGet]//Trae todas las historias clinicas
 
-        public async Task<ActionResult<List<Historia_Clinica>>>Get()
+        public async Task<ActionResult<List<HistoriaClinica>>>Get()
         {
 
             return await Conbd.HistoriasClinicas.ToListAsync();
@@ -38,30 +38,40 @@ namespace G3HistoriaClinica.Server.Controllers
 
 
 
-        [HttpGet("{ ID: int}")]//Trae las historias clinicas por ID
+        //[HttpGet("{ ID: int}")]//Trae las historias clinicas por ID
 
-        public async Task<ActionResult<List<Historia_Clinica>>> Get(int ID)
-        {
+        //public async Task<ActionResult<List<HistoriaClinica>>> Get(int ID)
+        
+            [HttpGet("{ID:int}")]
+            public async Task<ActionResult<HistoriaClinica>> get(int ID)
+            {
 
-            var historia_clinica = await Conbd.HistoriasClinicas.Where(h => h.id == ID).Include(i => i.Historias_Clinicas).FirstOrDeafaultAsync();
+                var HistoriaClinica = await Conbd.HistoriasClinicas.Where(p => p.ID == ID).FirstOrDefaultAsync();
+                if (HistoriaClinica == null)
+                {
+                    return NotFound($"No existe la especialidad de ID={ID}");
+                }
+                return HistoriaClinica;
+
+               // var historia_clinica = await Conbd.HistoriasClinicas.Where(h => h.ID == ID).Include(i => i.HistoriaClinicas).FirstOrDeafaultAsync();
 
 
-            if(historia_clinica == null)
-            { 
+           // if(historia_clinica == null)
+            //{ 
 
-                return NotFound($" No existe la historia clinica con el id = {ID}");
+               // return NotFound($" No existe la historia clinica con el id = {ID}");
 
-            }
+           // }
 
 
-            return historia_clinica;
+            //return historia_clinica;
 
         }
 
 
 
         [HttpPost]
-        public async Task<ActionResult<int>>Post(Historia_Clinica historia_Clinica)
+        public async Task<ActionResult<int>>Post(HistoriaClinica historia_Clinica)
         { 
 
             try

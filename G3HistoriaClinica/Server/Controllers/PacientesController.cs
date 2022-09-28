@@ -10,50 +10,46 @@ namespace G3HistoriaClinica.Server.Controllers
 
     public class PacientesController : ControllerBase
     {
-        private readonly Conbd inydbcont;
+        private readonly Conbd context;
+       
 
-        public PacientesController(Conbd Inydbcont)
+        public PacientesController(Conbd context)
         {
-            inydbcont = Inydbcont;
+            this.context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<PACIENTE>>> get()
+        [HttpGet]
+        public async Task<ActionResult<List<PACIENTE>>> Get()
         {
-            return await inydbcont.Pacientes.ToListAsync();
-
-
+            var paciente = await context.Pacientes.ToListAsync();
+            return paciente;
         }
+        
+
+
+        //}
         [HttpGet("{ID:int}")]
         public async Task<ActionResult<PACIENTE>> get(int ID)
         {
 
-            var paciente = await inydbcont.Pacientes.Where(p => p.ID == ID).FirstOrDefaultAsync();
+            var paciente = await context.Pacientes.Where(p => p.ID == ID).FirstOrDefaultAsync();
             if (paciente == null)
             {
                 return NotFound($"No existe la especialidad de ID={ID}");
             }
             return paciente;
 
-            //[HttpGet("PacientePorNombre/{nombre}")]
-            //public async Task<ActionResult<PACIENTE>> get(string nombre)
-            //var paciente = await inydbcont.Pacientes.Where(p => p.nombre == nombre).FirstOrDefaultAsync();
-            //if (paciente == null)
-            //{
-            //   return NotFound($"No existe la especialidad de ID={ID}");
+            
         }
-        //return paciente;
+        
         [HttpPost]
-        //public async Task<ActionResult<PACIENTE>> post(PACIENTE paciente)
-        //{
-        // await inydbcont.Pacientes.AddAsync(paciente);
-        // return paciente;
-        //}
+        
         public async Task<ActionResult<int>> Post(PACIENTE paciente)
         {
             try
             {
-                inydbcont.Pacientes.Add(paciente);
-                await inydbcont.SaveChangesAsync();
+                context.Pacientes.Add(paciente);
+                await context.SaveChangesAsync();
                 return paciente.ID;
             }
             catch (Exception e)
