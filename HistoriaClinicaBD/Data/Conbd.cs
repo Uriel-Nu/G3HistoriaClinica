@@ -16,12 +16,12 @@ namespace HistoriaClinicaBD.Data
         }
 
         public DbSet<PACIENTE> Pacientes { get; set; }
-        public DbSet<AmpliarHc> AmpliacionesHc { get; set; }
+        
         public DbSet<HistoriaClinica> HistoriasClinicas { get; set; }
 
+        public DbSet<Profesional> Profesionales { get; set; }
 
-        
-        }
+    }
     }
 
 
