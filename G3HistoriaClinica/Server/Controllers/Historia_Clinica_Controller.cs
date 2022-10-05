@@ -31,9 +31,18 @@ namespace G3HistoriaClinica.Server.Controllers
 
         public async Task<ActionResult<List<HistoriaClinica>>>Get()
         {
+            List < HistoriaClinica>  res;
+            try
+            {
+                 res = await Conbd.HistoriasClinicas.ToListAsync();
+            }
+            catch (Exception e) 
+            {
 
-            return await Conbd.HistoriasClinicas.ToListAsync();
-
+                throw;
+            }
+            
+            return res;
         }
 
 

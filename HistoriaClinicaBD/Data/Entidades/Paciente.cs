@@ -48,6 +48,7 @@ namespace HistoriaClinicaBD.Data.Entidades
 
         public string hijos { get; set; }
 
+        public List<HistoriaClinica> HistoriasClinicas{ get; set; }
 
     }
 }

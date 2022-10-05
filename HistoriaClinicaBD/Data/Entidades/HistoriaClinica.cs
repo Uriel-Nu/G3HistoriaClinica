@@ -12,7 +12,7 @@ using System.Xml.Linq;
 namespace HistoriaClinicaBD.Data.Entidades
 {
 
-    [Index(nameof (ID), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
+   // [Index(nameof (ID), Name = "Numero_HistoriaClinica-uq", IsUnique = true)]
 
 
     public class HistoriaClinica: EntytyBase
@@ -23,12 +23,22 @@ namespace HistoriaClinicaBD.Data.Entidades
         [MaxLength(10, ErrorMessage = " El Diagnostico_Medico, es obligatorio ")]
         public string Diagnostico_Medico { get; set; }
 
+        [Required(ErrorMessage = " Campo obligatorio")]
+        
+        public int ProfesionalID { get; set; }
+        public Profesional Profesional { get; set; }
+
+        [Required(ErrorMessage = " Campo obligatorio")]
+        public int PacienteID { get; set; }
+        public PACIENTE Paciente { get; set; }
+
+        
 
         //Relacion 
-        public List<PACIENTE>PACIENTES  { get; set; }
+        // public List<PACIENTE>PACIENTES  { get; set; }
 
 
-    
+
 
         //1 paciente, muchas historias clinicas
         //Poner relacion

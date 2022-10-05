@@ -16,7 +16,7 @@ namespace HistoriaClinicaBD.Data.Entidades
         public int IdProfesional { get; set; }
 
 
-            //[Required](ErrorMessage = "Campo obligatorio")]
+            [Required(ErrorMessage = "Campo obligatorio")]
             [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
             public string NombreCompleto { get; set; }
 
