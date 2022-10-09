@@ -15,6 +15,7 @@ namespace HistoriaClinicaBD.Data.Entidades
         
         public int IdProfesional { get; set; }
 
+               
 
             [Required(ErrorMessage = "Campo obligatorio")]
             [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
@@ -23,8 +24,20 @@ namespace HistoriaClinicaBD.Data.Entidades
             [Required(ErrorMessage = "Campo obligatorio")]
             [MaxLength(8, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
             public string DNI { get; set; }
+        
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
+        public string apellido { get; set; }
 
-            public List<HistoriaClinica> HistoriasClinicas { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
+        public string telefono { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [MaxLength(30, ErrorMessage = "Este dato no puede superar los {1} caracteres")]
+        public string matricula { get; set; }   
+
+        public List<HistoriaClinica> HistoriasClinicas { get; set; }
             public List<PACIENTE> Pacientes { get; set; }
 
     }
