@@ -22,6 +22,6 @@ namespace HistoriaClinicaBD.Data
         public DbSet<Profesional> Profesionales { get; set; }
 
     }
-    }
+}
 
 

@@ -17,7 +17,7 @@ namespace G3HistoriaClinica.Server.Controllers
         {
             this.context = context;
         }
-        [HttpGet]
+        //[HttpGet]
         [HttpGet]
         public async Task<ActionResult<List<PACIENTE>>> Get()
         {
