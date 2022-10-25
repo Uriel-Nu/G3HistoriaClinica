@@ -13,7 +13,7 @@ namespace G3HistoriaClinica.Server.Controllers
 
         private readonly Conbd context; 
 
-        private ProfesionalController(Conbd context)
+        public ProfesionalController(Conbd context)
         {
             this.context = context;
         }
