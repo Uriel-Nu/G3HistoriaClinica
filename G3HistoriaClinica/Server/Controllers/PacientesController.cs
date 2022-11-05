@@ -10,52 +10,78 @@ namespace G3HistoriaClinica.Server.Controllers
 
     public class PacientesController : ControllerBase
     {
-        private readonly Conbd context;
-       
+        private readonly Conbd DbContext;
 
-        public PacientesController(Conbd context)
+
+        public PacientesController(Conbd DbContext)
         {
-            this.context = context;
+            this.DbContext = DbContext;
         }
         //[HttpGet]
         [HttpGet]
         public async Task<ActionResult<List<PACIENTE>>> Get()
         {
-            var paciente = await context.Pacientes.ToListAsync();
+            var paciente = await DbContext.Pacientes.ToListAsync();
             return paciente;
         }
-        
-
-
-        //}
-        [HttpGet("{ID:int}")]
-        public async Task<ActionResult<PACIENTE>> get(int ID)
-        {
-
-            var paciente = await context.Pacientes.Where(p => p.ID == ID).FirstOrDefaultAsync();
-            if (paciente == null)
-            {
-                return NotFound($"No existe la especialidad de ID={ID}");
-            }
-            return paciente;
-
-            
-        }
-        
         [HttpPost]
-        
-        public async Task<ActionResult<int>> Post(PACIENTE paciente)
+        public async Task<ActionResult<int>> Post(PACIENTE pacientei)
         {
             try
             {
-                context.Pacientes.Add(paciente);
-                await context.SaveChangesAsync();
-                return paciente.ID;
+                PACIENTE paciente = new PACIENTE();
+                paciente.ID = pacientei.ID;
+                pacientei.Apellido = pacientei.Apellido;
+                pacientei.DNI = pacientei.DNI;
+                pacientei.edad = pacientei.edad;
+                pacientei.Direccion = pacientei.Direccion;
+                pacientei.telefono = pacientei.telefono;
+                pacientei.EstadoCivil = pacientei.EstadoCivil;
+                pacientei.hijos = pacientei.hijos;
+
+
+                DbContext.Pacientes.Add(pacientei);
+                await DbContext.SaveChangesAsync();
+                return pacientei.ID;
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                return BadRequest(e.Message);
+                return BadRequest(error.GetBaseException + error.Message);
             }
+
+            //        [HttpPost]
+
+            //        async Task<ActionResult<int>> Post(PACIENTE pacientei)
+            //        {
+            //            try
+            //            {
+            //                DbContext.pacientes.(pacientei);
+            //                await DbContext.SaveChangesAsync();
+            //                return pacientei.ID;
+            //            }
+            //            catch (Exception e)
+            //            {
+            //                return BadRequest(e.Message);
+            //            }
+            //        }
+            //    }
+            //}
+
+
+
+
+
         }
     }
-}   
+}
+
+        
+
+  
+
+        
+    
+
+
+
+       

@@ -3,6 +3,7 @@ using HistoriaClinicaBD.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HistoriaClinicaBD.Migrations
 {
     [DbContext(typeof(Conbd))]
-    partial class ConbdModelSnapshot : ModelSnapshot
+    [Migration("20221105142959_cambios7")]
+    partial class cambios7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,17 @@ namespace HistoriaClinicaBD.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<int>("PacienteID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfesionalID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("PacienteID");
+
+                    b.HasIndex("ProfesionalID");
 
                     b.ToTable("HistoriasClinicas");
                 });
@@ -112,6 +124,25 @@ namespace HistoriaClinicaBD.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Profesionales");
+                });
+
+            modelBuilder.Entity("HistoriaClinicaBD.Data.Entidades.HistoriaClinica", b =>
+                {
+                    b.HasOne("HistoriaClinicaBD.Data.Entidades.PACIENTE", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("PacienteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HistoriaClinicaBD.Data.Entidades.Profesional", "Profesional")
+                        .WithMany()
+                        .HasForeignKey("ProfesionalID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Paciente");
+
+                    b.Navigation("Profesional");
                 });
 #pragma warning restore 612, 618
         }

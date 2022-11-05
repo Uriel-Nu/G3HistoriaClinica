@@ -1,25 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace HistoriaClinicaBD.Data.Entidades
 {
-    [Index(nameof(DNI), Name = "Dnipaciente-uq", IsUnique = true)]
-
-    public class PACIENTE
-        
+    internal class pacienteInput
     {
-    public int ID { get; set; }
+        public int ID { get; set; }
 
-    [Required(ErrorMessage = " Campo obligatorio")]
+        [Required(ErrorMessage = " Campo obligatorio")]
         [MaxLength(10, ErrorMessage = " El nombre,no puede superar los {1} caracteres  ")]
 
-        public string nombre{ get; set; }
+        public string nombre { get; set; }
 
         [Required(ErrorMessage = " Campo obligatorio")]
         [MaxLength(10, ErrorMessage = " El nombre, no puede superar los {1} caracteres ")]
@@ -38,7 +33,7 @@ namespace HistoriaClinicaBD.Data.Entidades
         public string Direccion { get; set; }
 
         [Required(ErrorMessage = " Campo obligatorio")]
-        
+
         public int telefono { get; set; }
 
         [Required(ErrorMessage = " Campo obligatorio")]
@@ -50,8 +45,5 @@ namespace HistoriaClinicaBD.Data.Entidades
         [MaxLength(2, ErrorMessage = " El nombre, no puede superar los {1} caracteres ")]
 
         public string hijos { get; set; }
-
-       // public List<HistoriaClinica> HistoriasClinicas{ get; set; }
-
     }
 }

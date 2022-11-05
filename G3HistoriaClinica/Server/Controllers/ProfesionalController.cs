@@ -11,7 +11,7 @@ namespace G3HistoriaClinica.Server.Controllers
     {
         //private readonly Conbd context;
 
-        private readonly Conbd context; 
+        private readonly Conbd context;
 
         public ProfesionalController(Conbd context)
         {
@@ -24,9 +24,11 @@ namespace G3HistoriaClinica.Server.Controllers
             var profionales = await context.Profesionales.ToListAsync();
             return profionales;
         }
-
-       // [HttpGet("{ID:int}")]
-       // public async Task<ActionResult<Profesional>>
     }
 }
+
+//       // [HttpGet("{ID:int}")]
+//       // public async Task<ActionResult<Profesional>>
+//    }
+//}
 
